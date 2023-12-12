@@ -1,0 +1,89 @@
+#  Файл настроек для управления back-end сервером
+[default] # -------------------------------------------------
+SECRET_KEY = ''
+DATABASES__default__ENGINE = 'django.db.backends.postgresql_psycopg2'
+DATABASES__default__PORT = ''
+DATABASES__default__HOST = ''
+DATABASES__default__NAME = ''
+DATABASES__default__USER = ''
+DATABASES__default__PASSWORD = ''
+DATABASES__default__ATOMIC_REQUESTS = false
+DATABASES__default__AUTOCOMMIT = true
+DATABASES__default__CONN_MAX_AGE = 0
+REDIS_HOST=""
+REDIS_PORT=''
+REDIS_PASSWORD=""
+LANGUAGE_CODE = 'ru-ru'
+TIME_ZONE = 'Europe/Moscow'
+ALLOWED_HOSTS = ['*']
+MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
+USE_I18N = true
+USE_L10N = true
+USE_TZ = true
+
+REST_FRAMEWORK__PAGE_SIZE = 20
+REST_FRAMEWORK__DEFAULT_THROTTLE_RATES = {anon = '5/min', user = '1/min'}
+LOG_LEVEL = ''
+ENV_NAME = 'default'
+
+[local] # -------------------------------------------------
+DEBUG = true
+TIME_ZONE = 'Europe/Moscow'
+LOG_LEVEL = 'DEBUG'
+LOGURU_SERIALIZE = false
+ENV_NAME = 'local'
+CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1:3000',
+    'http://localhost:3000',
+]
+MEDIA_ROOT = '/usr/src/app/static/'
+STATIC_ROOT = '/static/'
+
+[development] # -------------------------------------------------
+DEBUG = false
+#ALLOWED_HOSTS = [
+#    '188.225.24.18',
+#    'test.delivery.sarawan.ru'
+#]
+#CORS_ALLOWED_ORIGINS = [
+#    'http://127.0.0.1:3000',
+#    'http://localhost:3000',
+#    'https://delivery.salfa.ru',
+#]
+LOG_LEVEL = 'INFO'
+LOGURU_SERIALIZE = false # true for write to db
+MEDIA_ROOT = '/usr/local/bin/src/app/static/'
+STATIC_ROOT = '/static/'
+ENV_NAME = 'development'
+
+
+[testing] # -------------------------------------------------
+DEBUG = true
+#CORS_ALLOWED_ORIGINS = [
+#    'http://127.0.0.1:3000',
+#    'http://localhost:3000',
+#]
+LOG_LEVEL = 'DEBUG'
+LOGURU_SERIALIZE = false
+MEDIA_ROOT = ''
+STATIC_ROOT = ''
+ENV_NAME = 'testing'
+
+
+[production] # -------------------------------------------------
+DEBUG = false
+#ALLOWED_HOSTS = [
+#    '188.225.24.18',
+#    'delivery.sarawan.ru'
+#]
+#CORS_ALLOWED_ORIGINS = [
+#    'http://127.0.0.1:3000',
+#    'http://localhost:3000',
+#    'https://delivery.salfa.ru',
+#]
+LOG_LEVEL = 'INFO'
+LOGURU_SERIALIZE = false # true for write to db
+MEDIA_ROOT = '/usr/local/bin/src/app/static/'
+STATIC_ROOT = '/static/'
+ENV_NAME = 'production'
