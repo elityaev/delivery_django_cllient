@@ -1,4 +1,4 @@
-"""Config for manager settings"""
+# """Config for manager settings"""
 from dynaconf import DjangoDynaconf
 
 settings = DjangoDynaconf(

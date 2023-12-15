@@ -1,0 +1,17 @@
+<div style="background:#eee;padding:30px;">
+	<div style="background:#fff;padding: 15px 20px;width: 550px;border: 1px solid #e3e3e5;border-radius:3px;margin: 0 auto;font: normal 13px/19px Verdana;box-shadow: 0 3px 7px rgba(0,0,0,.1);">
+		<h2 style="font-family: 'Montserrat'; font-style: normal; font-weight: 600; font-size: 24px; line-height: 120%; display: flex; align-items: center; color: #2C2828;
+        "><svg style="margin: 10px" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M34 17C34 26.3888 26.3888 34 17 34C7.61116 34 0 26.3888 0 17C0 7.61116 7.61116 0 17 0C26.3888 0 34 7.61116 34 17Z" fill="#FF8A00"/>
+			<path d="M24.6807 22.4485L24.4082 25.7707L21.0861 25.4982L21.2904 23.0066L18.7988 22.8022L19.0032 20.3106L16.5115 20.1062L14.7885 18.0752C14.3201 18.1789 13.8322 18.2142 13.3256 18.1726C12.004 18.0642 10.7795 17.4352 9.92164 16.424C9.06375 15.4128 8.64269 14.1022 8.7511 12.7806C8.85951 11.459 9.4885 10.2345 10.4997 9.37662C11.5109 8.51873 12.8215 8.09768 14.1431 8.20609C15.4648 8.31449 16.6892 8.94348 17.5471 9.95468C18.405 10.9659 18.826 12.2765 18.7176 13.5981C18.6761 14.1047 18.5618 14.5803 18.3832 15.0255L24.6807 22.4485ZM13.1082 10.6296C12.6676 10.5935 12.2308 10.7338 11.8937 11.0198C11.5567 11.3057 11.347 11.7139 11.3109 12.1544C11.2747 12.595 11.4151 13.0318 11.701 13.3689C11.987 13.706 12.3951 13.9156 12.8357 13.9518C13.2762 13.9879 13.7131 13.8476 14.0502 13.5616C14.3872 13.2756 14.5969 12.8675 14.633 12.4269C14.6692 11.9864 14.5288 11.5495 14.2429 11.2125C13.9569 10.8754 13.5487 10.6657 13.1082 10.6296Z" fill="white"/>
+			</svg>
+			Активация аккаунта
+		</h2>
+		<div style="padding: 15px 0; font-family: 'Open Sans'; font-style: normal; font-weight: 400; font-size: 14px; line-height: 130%; color: #565353;">
+			Уважаемый <b>{{name}}</b>. Вы зарегестрировались на сайте <b>sarawan_delivery</b> Пройдите по ссылке для активации аккаунта:
+		</div>
+		<div style="width: 150px;margin:0 auto;display: block;background: #4CAF50 repeat-x 0 0;color: #fff;font-weight:bold; line-height: 44px;text-align: center;text-transform: uppercase;text-decoration: none;border-radius: 10px;text-shadow: 0 1px 3px rgba(0,0,0,.35);">
+			{{link}}
+		</div>
+	</div>
+</div>
