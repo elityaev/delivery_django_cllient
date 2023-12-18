@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
+    'drf_spectacular',
+    'apps.users',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +56,7 @@ ROOT_URLCONF = 'delivery_client.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,8 +87,26 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+DJOSER = {
+    "USER_ID_FIELD": "id",
+    "LOGIN_FIELD": "email",
+    "SEND_ACTIVATION_EMAIL": True,
+    "ACTIVATION_URL": "api/v1/activation/{uid}/{token}",
+    'SERIALIZERS': {
+        'user_create': 'apps.users.api.serializers.ClientCreateSerializer',
+    },
+    'EMAIL': {
+            'activation': 'apps.users.utils.ActivationEmail',
+        },
+}
+
+SITE_NAME = 'sarawan_delivery'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.User'
 
 LOGIN_URL = '/'
 
@@ -95,7 +116,7 @@ LOGOUT_REDIRECT_URL = '/'
 # путь к медиа по умолчанию
 MEDIA_ROOT = ''
 # путь к статике по умолчанию
-STATIC_ROOT = ''
+STATIC_ROOT = '/static/'
 
 INTERNAL_IPS = ['127.0.0.1']
 
@@ -107,8 +128,16 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.TokenAuthentication"
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'EXCEPTION_HANDLER': 'apps.authentication.utils.custom_exception_handler'
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Sarawan Delivery-Client API',
+    'DESCRIPTION': 'Апи клиентского сайта доставки',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
+
 
 USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

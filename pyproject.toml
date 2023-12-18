@@ -10,8 +10,8 @@ packages = [{include = "delivery_django_cllient"}]
 python = "^3.10"
 django = "4.2"
 djangorestframework = "3.14.0"
-dynaconf = "^3.2.4"
 psycopg2 = "^2.9.9"
+dynaconf = "^3.2.4"
 
 
 [build-system]
