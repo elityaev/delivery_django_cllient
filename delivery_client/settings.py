@@ -116,7 +116,7 @@ LOGOUT_REDIRECT_URL = '/'
 # путь к медиа по умолчанию
 MEDIA_ROOT = ''
 # путь к статике по умолчанию
-STATIC_ROOT = ''
+STATIC_ROOT = '/static/'
 
 INTERNAL_IPS = ['127.0.0.1']
 

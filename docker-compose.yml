@@ -1,0 +1,38 @@
+version: '3.8'
+
+volumes:
+  pgdata:
+  static:
+  media:
+
+services:
+
+  web:
+    build:
+      context: .
+    ports:
+      - '8000:8000'
+    container_name: backend_test
+    restart: always
+    env_file:
+      - config/.env
+    volumes:
+      - ./:/app
+      - static:/app/static
+    depends_on:
+      - postgres
+    command: sh -c "python manage.py collectstatic --no-input &&
+                    python manage.py makemigrations &&
+                    python manage.py migrate &&
+                    python manage.py runserver 0.0.0.0:8000"
+
+  postgres:
+    image: postgres:alpine
+    container_name: sarawan_client_db
+    restart: always
+    env_file:
+      - config/.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
